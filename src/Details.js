@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import Quote from './Quote';
 import Spinner from './Spinner';
 import axios from 'axios';
 
@@ -12,7 +11,7 @@ function Details(route) {
         console.log('route:', route);
 
         const result = await axios(
-            `https://rickandmortyapi.com/api/character/${route.id}`,
+            `https://rickandmortyapi.com/api/character/${route.id}`
         );
 
         console.log('result:', result);
@@ -36,7 +35,6 @@ function Details(route) {
             <div className="location">
                 <i class="fas fa-map-marker" /> {data.location.name}
             </div>
-            <Quote />
         </div>
     );
 }
