@@ -7,7 +7,7 @@
     <img src="https://i.imgur.com/iMrHn4S.gif">
 </p>
 
-This is sample app using React Hooks. It allows you to search for Rick and Morty characters from the [Rick and Morty API](https://rickandmortyapi.com/).
+This is a sample app using React Hooks. It allows you to search for Rick and Morty characters from the [Rick and Morty API](https://rickandmortyapi.com/).
 
 ## Usage
 
