@@ -4,7 +4,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
 <p align="center">
-    <img src="https://imgur.com/a/Jv0Py9F">
+    <img src="https://i.imgur.com/QA0tq4h.gifv">
 </p>
 
 This is sample app using React Hooks. It allows you to search for Rick and Morty characters from the [Rick and Morty API](https://rickandmortyapi.com/).
