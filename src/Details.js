@@ -1,27 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Spinner from './Spinner';
-import axios from 'axios';
+import useSearchRickAPI from './useSearchRickAPI';
 
 function Details(route) {
-    const [data, setData] = useState({});
-    const [loading, setLoading] = useState(true);
-
-    const getCharacter = async () => {
-        console.log('searching...');
-        console.log('route:', route);
-
-        const result = await axios(
-            `https://rickandmortyapi.com/api/character/${route.id}`
-        );
-
-        console.log('result:', result);
-        setData(result.data);
-        setLoading(false);
-    };
-
-    useEffect(() => {
-        getCharacter();
-    }, []);
+    const [data, loading] = useSearchRickAPI(route.id);
 
     return loading ? (
         <Spinner />
@@ -33,7 +15,7 @@ function Details(route) {
                 {data.species} <span className="status">({data.status})</span>
             </div>
             <div className="location">
-                <i class="fas fa-map-marker" /> {data.location.name}
+                <i className="fas fa-map-marker" /> {data.location.name}
             </div>
         </div>
     );

@@ -1,45 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {Link} from '@reach/router';
 import Spinner from './Spinner';
-import axios from 'axios';
+import useSearchRickAPI from './useSearchRickAPI';
 import './App.css';
 
 function Search() {
-    const [data, setData] = useState({});
     const [query, setQuery] = useState('');
     const [search, setSearch] = useState('');
-    const [loading, setLoading] = useState(true);
+    const [data, loading] = useSearchRickAPI(search);
 
     const handleSubmit = e => {
         e.preventDefault();
         setSearch(query);
     };
-
-    const searchCharacter = async () => {
-        console.log('searching...');
-        let queryString = '';
-        const page = Math.floor(Math.random() * 19) + 1;
-
-        if (search) {
-            queryString = `?name=${search}`;
-        } else {
-            queryString = `?page=${page}`;
-        }
-
-        const result = await axios(
-            `https://rickandmortyapi.com/api/character/${queryString}`,
-        );
-
-        setData(result.data);
-        setLoading(false);
-    };
-
-    useEffect(
-        () => {
-            searchCharacter();
-        },
-        [search],
-    );
 
     return loading ? (
         <Spinner />
